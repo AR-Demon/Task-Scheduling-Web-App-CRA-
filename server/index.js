@@ -9,9 +9,9 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import { error } from "console";
-import authRoutes from "./routes/auth.js"
+/*import authRoutes from "./routes/auth.js"
 import { register } from "./controllers/auth.js"
-import { verifyToken } from "./middleware/auth.js";
+import { verifyToken } from "./middleware/auth.js";*/
 
 /*  CONFIGURATIONS  */
 const __filename = fileURLToPath(import.meta.url);
@@ -29,7 +29,7 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 
 /* FILE STORAGE */
 
-const storage = multer.diskStorage({
+/*const storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, "public/assets");
     },
@@ -38,4 +38,17 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage});
+const upload = multer({ storage});*/
+
+/* ROUTES FROM FILES */
+
+/* ROUTES */
+
+/* MONGOOSE SETUP */
+const PORT = process.env.PORT || 6001;
+mongoose.connect(process.env.MONGO_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    app.listen(PORT, () => console.log('Server Port:',PORT));
+}).catch((error) => console.log(error + 'did not connect'));
