@@ -35,9 +35,6 @@ const userSchema = new mongoose.Schema({
         min: 5,
         max: 16,
     },
-    
-    phoneNumber: String,
-    location: String,
 },{timestamps: true});
 
 const User = mongoose.model("User", userSchema);
